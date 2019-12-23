@@ -16,6 +16,7 @@
 #include <assert.h>
 #include <math_constants.h>
 #include <unistd.h>
+#include "../numpy_fix.hpp"
 using namespace boost::python;
 
 #define TB 128
@@ -929,7 +930,7 @@ BOOST_PYTHON_MODULE(post) {
     	.def("get_array",&CUDA_float_array::get_array)
     	.def("free_array",&CUDA_float_array::free_array);    	
 
-    import_array();
+    import_array_sub();
 }
 
 

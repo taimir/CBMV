@@ -14,6 +14,7 @@
 #include <sstream>
 //added by CCJ: for macro THREADS_NUM_USED
 #include "../paramSetting.hpp"
+#include "../numpy_fix.hpp"
 
 using namespace std;
 using namespace boost::python;
@@ -536,5 +537,5 @@ BOOST_PYTHON_MODULE(libfeatextract) {
     def("extract_likelihood",extract_aml_testing);
     def("get_left_cost",get_left_cost_from_right);
     def("generate_labels",generate_labels);
-    import_array();
+    import_array_sub();
 }

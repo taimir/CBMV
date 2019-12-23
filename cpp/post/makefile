@@ -8,7 +8,7 @@ CFLAGS= -O3 -g3  -Wall -c -fmessage-length=0 -msse4 -fPIC -MMD -MP
 LFLAGS= -shared -Wl,--export-dynamic
 # location of the Python header files
 
-PYTHON_VERSION = 2.7
+PYTHON_VERSION = 3.5
 PYTHON_INCLUDE = /usr/include/python$(PYTHON_VERSION)
 
 #added by CCJ
@@ -24,7 +24,7 @@ CUDA_LIBS = /usr/local/cuda-8.0/lib64
 TARGET = post
 
 $(TARGET).so: $(TARGET).cu
-	$(NV) -arch=sm_52 --default-stream per-thread  -O3 -L$(BOOST_LIB) -lboost_python -lpython$(PYTHON_VERSION) -I$(PYTHON_INCLUDE) -I$(NUMPY_INCLUDE) -I$(BOOST_INC) -Xcompiler -fopenmp -Xcompiler -fPIC --shared $(TARGET).cu -o $(TARGET).so
+	$(NV) -arch=sm_52 --default-stream per-thread  -O3 -L$(BOOST_LIB) -lboost_python -lpython$(PYTHON_VERSION)m -I$(PYTHON_INCLUDE) -I$(NUMPY_INCLUDE) -I$(BOOST_INC) -Xcompiler -fopenmp -Xcompiler -fPIC --shared $(TARGET).cu -o $(TARGET).so
 
 
 clean:

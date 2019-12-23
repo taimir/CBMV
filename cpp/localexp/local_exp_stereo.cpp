@@ -22,6 +22,7 @@
 #include "boost/python/extract.hpp"
 #include "boost/python/numeric.hpp"
 #include <numpy/ndarrayobject.h>
+#include "../numpy_fix.hpp"
 using namespace boost::python;
 namespace fs = std::experimental::filesystem;
 
@@ -487,5 +488,5 @@ BOOST_PYTHON_MODULE(liblocal_exp_stereo){
 	numeric::array::set_module_and_type("numpy", "ndarray");
 	//def("run_local_exp_stereo", local_exp_stereo);
 	def("run_local_exp_stereo", local_exp_stereo_cost_volume);
-	import_array();
+	import_array_sub();
 }

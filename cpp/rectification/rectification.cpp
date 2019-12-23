@@ -23,6 +23,7 @@
 #include <sstream>
 #include <fstream>
 #include <dirent.h>
+#include "../numpy_fix.hpp"
 using namespace std;
 using namespace cv;
 using namespace boost::python;
@@ -511,7 +512,7 @@ BOOST_PYTHON_MODULE(librectification) {
     					boost::python::arg("invert")=false, boost::python::arg("option")=false  ));
 
 
-    import_array();
+    import_array_sub();
 }
 
 

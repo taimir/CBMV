@@ -10,13 +10,13 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -msse4 -O3 -funroll-loops -ftree-v
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 set(CMAKE_BUILD_TYPE Release)
 
-set(OpenCV_DIR "/usr/local/opencv-3.2.0/share/OpenCV/")
+set(OpenCV_DIR "/usr/local/")
 find_package(OpenCV 3 REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS} 
         eval/
 				maxflow/ 
 				# add the following line for vision 6 server
-				/usr/local/lib/python2.7/dist-packages/numpy/core/include
+				/usr/local/lib/python3.5/dist-packages/numpy/core/include
 	)
 
 # see https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt
@@ -25,11 +25,10 @@ set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF) 
 #set(BOOST_ROOT "/usr/local/boost_1_63_0/")
 #find_package( Boost 1.63.0 REQUIRED COMPONENTS python system filesystem )
-find_package( Boost REQUIRED COMPONENTS python system filesystem )
+find_package( Boost REQUIRED COMPONENTS python-py35 system filesystem )
 include_directories(${BOOST_INCLUDE_DIRS})
 
-#find_package(PythonLibs 3.6 REQUIRED)
-find_package(PythonLibs 2.7 REQUIRED)
+find_package(PythonLibs 3.5 REQUIRED)
 include_directories(${PYTHON_INCLUDE_DIRS})
 
 MESSAGE(STATUS "** Search Boost root: ${BOOST_ROOT}")

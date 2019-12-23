@@ -14,6 +14,7 @@
 #include <sstream>
 //added by CCJ: for macro THREADS_NUM_USED
 #include "../paramSetting.hpp"
+#include "../numpy_fix.hpp"
 
 using namespace std;
 using namespace boost::python;
@@ -578,5 +579,5 @@ BOOST_PYTHON_MODULE(libmatchers) {
 	def("initthreads",initthreads);
 
    
-    import_array();
+    import_array_sub();
 }
